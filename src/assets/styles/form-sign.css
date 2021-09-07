@@ -1,27 +1,27 @@
-.sign-in__form {
+.sign__form {
   display: grid;
   width: 100%;
   min-height: 200px;
 }
 
-.sign-in__form label, .sign-in__input {
+.sign__form label, .sign__input {
   width: 100%;
 }
 
-.sign-in__input {
+.sign__input {
   margin: 10px 0;
   padding: 5px;
   border: none;
   border-bottom: 1px solid rgb(255, 75, 43);
 }
 
-.sign-in__input--error {
+.sign__input--error {
   border: 1px solid red;
   border-radius: 5px;
   background-color: rgba(255, 75, 43, 0.3);
 }
 
-.sign-in__button {
+.sign__button {
   width: 50%;
   height: 45px;
   justify-self: center;
@@ -33,18 +33,18 @@
   font-size: 1.2rem;
 }
 
-.sign-in__button:hover {
+.sign__button:hover {
   background: rgb(255, 65, 108);
   transition-duration: 1s;
 }
 
-.sign-in__button:disabled,
-.sign-in__button[disabled] {
+.sign__button:disabled,
+.sign__button[disabled] {
   background: gray;
   cursor: auto;
 }
 
-.sign-in__header {
+.sign__header {
   width: 100%;
   text-align: center;
 }

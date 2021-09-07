@@ -1,19 +1,13 @@
 import {
-  AfterContentChecked,
-  AfterContentInit, AfterViewChecked, AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  DoCheck,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges
+  Component,Input,
+  ChangeDetectionStrategy, SimpleChanges,
+  AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
+  DoCheck, OnChanges, OnDestroy, OnInit,
 } from '@angular/core';
 import {NotificationService} from "../../../core/services/notification.service";
 
 @Component({
-  selector: 'app-lifecycle-hooks-child',
+  selector: 'lifecycle-hooks-child',
   template: `
     <div>
       <h3>{{this.executeFunction()}}</h3>
@@ -32,7 +26,7 @@ export class LifecycleHooksChildComponent implements OnChanges, AfterContentInit
   }
 
   executeFunction() {
-    console.log("App Rerendered. ", "DetectionStrategy: Default")
+    console.log("App Rendered. ", "DetectionStrategy: Default")
     return "This is Child Component"
   }
 

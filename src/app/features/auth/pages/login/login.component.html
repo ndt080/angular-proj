@@ -1,11 +1,11 @@
 <div class="layout">
   <div class="container">
     <ng-container *ngIf="showForm">
-      <app-form-sign-in></app-form-sign-in>
+      <form-sign-in></form-sign-in>
       <button type="button" class="form_change_btn" (click)="showForm = !showForm">Do you want to create an account?</button>
     </ng-container>
     <ng-container *ngIf="!showForm">
-      <app-form-sign-up></app-form-sign-up>
+      <form-sign-up></form-sign-up>
       <button type="button" class="form_change_btn" (click)="showForm = !showForm">Go to the sign-in</button>
     </ng-container>
   </div>
