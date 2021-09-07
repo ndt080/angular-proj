@@ -3,22 +3,22 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, filter, take, switchMap } from 'rxjs/operators';
 
-import {AuthService} from "./auth.service";
+import {AuthService} from "./services/auth.service";
+import {StorageAuthService} from "./services/storage-auth.service";
 
-@Injectable()
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public storage: StorageAuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let jwtToken = this.authService.getJwtToken()
+    let jwtToken = this.storage.getJwtToken()
 
     if (jwtToken) {
-      console.log(this.authService.getJwtToken())
+      console.log(this.storage.getJwtToken())
       request = this.addToken(request, jwtToken);
     }
 

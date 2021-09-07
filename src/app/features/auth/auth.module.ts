@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {AuthGuard} from "../../core/guards/auth.guard";
-import {AuthService} from "./auth.service";
+import {AuthService} from "./services/auth.service";
 import {GlobalGuard} from "../../core/guards/global.guard";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "./token.interceptor";
+import {StorageAuthService} from "./services/storage-auth.service";
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import {TokenInterceptor} from "./token.interceptor";
   providers: [
     AuthGuard,
     AuthService,
+    StorageAuthService,
     GlobalGuard,
     {
       provide: HTTP_INTERCEPTORS,
@@ -22,4 +24,5 @@ import {TokenInterceptor} from "./token.interceptor";
     },
   ],
 })
-export class AuthModule { }
+export class AuthModule {
+}

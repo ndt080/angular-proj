@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-import {NotificationService} from "../../../core/services/notification.service";
-import {AuthService} from "../../auth/auth.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../auth/services/auth.service";
 
 @Component({
   selector: 'app-about',
@@ -15,12 +13,11 @@ import {AuthService} from "../../auth/auth.service";
 })
 export class AboutComponent implements OnInit {
   user = {}
-  constructor(private auth: AuthService, private notify: NotificationService) { }
+
+  constructor(private auth: AuthService) {
+  }
 
   ngOnInit(): void {
     this.auth.userInfo().subscribe(res => this.user = res)
   }
-
-
-
 }
