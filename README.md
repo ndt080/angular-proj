@@ -1,3 +1,3 @@
 # AngularProj
 
-<a href="https://angular-task2-alignedcode.web.app/login">Go to DEMO</a>
+<a href="https://angular-task2-alignedcode.web.app">Go to DEMO</a>
