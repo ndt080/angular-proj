@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, timer, Subject} from 'rxjs';
-import {takeUntil, tap} from 'rxjs/operators';
+import {switchMap, takeUntil, tap} from 'rxjs/operators';
 
 import {environment} from 'src/environments/environment';
 import {User} from "../../../core/models/user";
@@ -30,7 +30,7 @@ export class AuthService {
             this.router.navigate(['/']);
 
             let delay = tokens?.['exparedAt'] as number * 1000;
-            this.timerRefreshToken(delay - 60000, delay - 60000)
+            this.timerRefreshToken(delay / 2, delay / 2)
           },
           err => {
             console.log(err.error)
@@ -51,7 +51,7 @@ export class AuthService {
             this.router.navigate(['/']);
 
             let delay = tokens?.['exparedAt'] as number * 1000;
-            this.timerRefreshToken(delay - 60000, delay - 60000)
+            this.timerRefreshToken(delay / 2, delay / 2)
           },
           err => {
             console.log(err.error)
@@ -99,8 +99,8 @@ export class AuthService {
   timerRefreshToken(delay: number, tick: number) {
     timer(delay, tick).pipe(
       takeUntil(this.stopRefreshToken),
-      tap((_) => {
-        this.refreshToken();
+      tap(() => {
+        this.refreshToken().subscribe()
       }),
     ).subscribe();
   }

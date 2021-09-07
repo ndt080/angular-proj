@@ -21,8 +21,8 @@ export class StorageAuthService {
     localStorage.setItem(JWT_TOKEN, jwt);
   }
 
-  storeTokens(tokens: Tokens) {
-    localStorage.setItem(JWT_TOKEN, tokens?.['accessToken']);
+  storeTokens(tokens: any) {
+    localStorage.setItem(JWT_TOKEN, tokens?.['acessToken']);
     localStorage.setItem(REFRESH_TOKEN, tokens.refreshToken);
   }
 
